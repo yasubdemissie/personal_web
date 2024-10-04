@@ -21,7 +21,6 @@ export function useWritedown() {
             return next;
           });
           if (loop === length - 1) clearInterval(timeInterval);
-          console.log(paragraph);
           return loop + 1;
         });
       }, 50);
