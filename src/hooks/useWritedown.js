@@ -3,6 +3,7 @@ import { useState } from "react";
 export function useWritedown() {
   const [paragraph, setParagraph] = useState("");
   const [loop, setLoop] = useState(0);
+  const [writing, setWriting] = useState(false);
 
   const writeDown = (text) => {
     const arr = text.split("");
@@ -11,9 +12,8 @@ export function useWritedown() {
     setParagraph("");
     setLoop(0);
 
-    console.log(arr[loop], paragraph);
-
     if (loop <= length) {
+      setWriting(true);
       const timeInterval = setInterval(() => {
         setLoop((loop) => {
           setParagraph((p) => {
@@ -24,8 +24,9 @@ export function useWritedown() {
           return loop + 1;
         });
       }, 50);
-    }
+    } 
+    setWriting(false);
   };
 
-  return { writeDown, paragraph };
+  return { writeDown, paragraph, writing  };
 }

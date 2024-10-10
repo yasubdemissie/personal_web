@@ -9,7 +9,7 @@ function Home({ children }) {
   return (
     <div className="h-full">
       <p
-        className="bg-slate-950 text-yellow-400 min-h-8 rounded-md px-2 mb-1"
+        className="min-h-8 rounded-md px-2 mb-1"
         ref={area1}
       >
         {paragraph}
